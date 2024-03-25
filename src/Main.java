@@ -1,16 +1,16 @@
 package src;
 
+
+import person.Person;
+
 public class Main {
     public static void main(String[] args) {
-        PersonBuilder person1 = new PersonBuilder("Enzo","Marino");
-        PersonBuilder person2 = new PersonBuilder("Marina","Carisi");
+        Person user = Person.builder("Enzo", "Giorgi").build();
+        Person user1 = Person.builder("Marina", "Carisi").setAddress("Via roma, 2").setAge(18).build();
 
 
-        System.out.println(person1);
-
-        person2.setAge(27);
-        person2.setAddress("Via della conciliazione, 18");
-        System.out.println(person2);
+        System.out.println(user);
+        System.out.println(user1);
 
     }
 }

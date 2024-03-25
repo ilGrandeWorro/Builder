@@ -1,10 +1,26 @@
-package src;
+package person;
 
-public class PersonBuilder {
+ public class PersonBuilder {
     private String firstName;
     private String lastName;
     private String address;
     private int age;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 
     public PersonBuilder setAge(int age) {
         this.age = age;
@@ -32,7 +48,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(firstName, lastName, address, age);
+        return new Person(this);
     }
 
     @Override
