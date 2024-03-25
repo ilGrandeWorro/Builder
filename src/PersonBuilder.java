@@ -1,17 +1,14 @@
 package src;
 
-public class PersonBuilder  {
+public class PersonBuilder {
     private String firstName;
     private String lastName;
     private String address;
     private int age;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public PersonBuilder setAge(int age) {
+        this.age = age;
+        return this;
     }
 
     public PersonBuilder setAddress(String address) {
@@ -19,22 +16,32 @@ public class PersonBuilder  {
         return this;
     }
 
-    public PersonBuilder setAge(int age) {
-        this.age = age;
+    public PersonBuilder setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
-    public Person build (){
-        return new Person(firstName,lastName,address,age);
 
+    public PersonBuilder setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
     }
-    public String Print() {
-        String info = "Name: " + firstName + "\n" + "Last name: " + lastName + "\n";
-        if (this.address != null) {
-            info += "Address: " + address + "\n";
-        }
-        if (this.age != 0) {
-            info += "Age: " + age +"\n";
-        }
-        return info;
+
+    public PersonBuilder(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Person build() {
+        return new Person(firstName, lastName, address, age);
+    }
+
+    @Override
+    public String toString() {
+        return "PersonBuilder{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
